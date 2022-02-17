@@ -11,6 +11,8 @@
 #include "tt/include.h"
 #include "repeat/include.h"
 
+extern bool mcp23018_leds[3];
+
 enum custom_keycodes {
   KEYCODES_START = CUSTOM_SAFE_RANGE,
 
@@ -109,58 +111,72 @@ LAYOUT_moonlander( \
 // Left Index
 #define CMB_CTC CMB_000
 #define CMB_CTV CMB_001
-// Left Thumb
-#define CMB_SFT CMB_002
-#define CMB_BSP CMB_003
-#define CMB_ENT CMB_004
-#define CMB_CTL CMB_005
-// Left Left Thumb
-#define CMB_LYV CMB_006
-#define CMB_LYG CMB_007
-// Right Thumb
-#define CMB_LAN CMB_008
-#define CMB_DOT CMB_009
-#define CMB_SPC CMB_010
-#define CMB_ALT CMB_011
 
 // Shifted index keys
-#define CMB_CAC CMB_012
-#define CMB_CAV CMB_013
+#define CMB_CAC CMB_002
+#define CMB_CAV CMB_003
+
+// Right Index
+#define CMB_CTS CMB_004
+#define CMB_CMSP CMB_005
+
+// Left Thumb
+#define CMB_SFT CMB_006
+#define CMB_BSP CMB_007
+#define CMB_ENT CMB_008
+#define CMB_CTL CMB_009
+
+// Left Left Thumb
+#define CMB_LYV CMB_010
+#define CMB_LYG CMB_011
+
+// Right Thumb
+#define CMB_LAN CMB_012
+#define CMB_DOT CMB_013
+#define CMB_SPC CMB_014
+#define CMB_ALT CMB_015
 
 // Russian index keys on letters
-#define CMS_R CMB_014
-#define CMS_SH CMB_015
-#define CMS_S_R CMB_016
-#define CMS_SSH CMB_017
+#define CMS_R CMB_016
+#define CMS_T CMB_017
+#define CMS_S_R CMB_018
+#define CMS_ST CMB_019
 
 // Left number-row
-#define CMB_PLS CMB_018
-#define CMB_SCL CMB_019
-#define CMB_GRV CMB_020
-#define CMB_EXL CMB_021
-#define CMB_ASR CMB_022
+#define CMB_PLS CMB_020
+#define CMB_SCL CMB_021
+#define CMB_GRV CMB_022
+#define CMB_EXL CMB_023
+#define CMB_ASR CMB_024
+
 // Right number-row
-#define CMB_EQL CMB_023
-#define CMB_CLN CMB_024
-#define CMB_CMM CMB_025
-#define CMB_QUE CMB_026
-#define CMB_SLS CMB_027
+#define CMB_EQL CMB_025
+#define CMB_CLN CMB_026
+#define CMB_CMM CMB_027
+#define CMB_QUE CMB_028
+#define CMB_SLS CMB_029
 
 // Brackets on red layer, order: 1 - (), 2 - [], 3 - {}, 4 - <>
-#define CMB_LB1 CMB_028
-#define CMB_RB1 CMB_029
-#define CMB_LB2 CMB_030
-#define CMB_RB2 CMB_031
-#define CMB_LB3 CMB_032
-#define CMB_RB3 CMB_033
-#define CMB_LB4 CMB_034
-#define CMB_RB4 CMB_035
+#define CMB_LB1 CMB_030
+#define CMB_RB1 CMB_031
+#define CMB_LB2 CMB_032
+#define CMB_RB2 CMB_033
+#define CMB_LB3 CMB_034
+#define CMB_RB3 CMB_035
+#define CMB_LB4 CMB_036
+#define CMB_RB4 CMB_037
 
 // Brackets on XCompose layer
-#define CMB_LTR CMB_036
-#define CMB_RTR CMB_037
-#define CMB_LCR CMB_038
-#define CMB_RCR CMB_039
+#define CMB_LTR CMB_038
+#define CMB_RTR CMB_039
+#define CMB_LCR CMB_040
+#define CMB_RCR CMB_041
+
+// Russian index keys on letters
+#define CMS_K CMB_042
+#define CMS_JE CMB_043
+#define CMS_S_K CMB_044
+#define CMS_S_JE CMB_045
 
 #define TT_CTJ TT_000
 
@@ -243,20 +259,20 @@ enum Layers {
   /*-------------------------------------------------------------------------*/ \
   [L_DEFAULT] = MY_layout( \
     /* LEFT HALF */ \
-    KC_ESC,  CMB_PLS, CMB_SCL, CMB_GRV, CMB_EXL, CMB_ASR, EN_AT, \
+    KC_ESC,  AG_EXCL, EN_AT,   EN_HASH, EN_DLR,  AG_PERC, EN_GRV, \
     AG_UNDS, LU1,     LU2,     LU3,     LU4,     LU5,     CMB_CTC, \
-    SFT_N_O, LH1,     LH2,     LH3,     LH4,     LH5,     CMB_CTV, \
-    LD0,     LD1,     LD2,     LD3,     LD4,     LD5, \
+    AG_DQUO, LH1,     LH2,     LH3,     LH4,     LH5,     CMB_CTV, \
+    EN_QUOT, LD1,     LD2,     LD3,     LD4,     LD5, \
     MU_CTJ,  TT_YELW, CT_SLSH, CMB_LYG, CMB_LYV, \
     CMB_CTL, /* LEFT RED THUMB KEY */ \
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ \
     \
     /* RIGHT HALF */ \
-    EN_CIRC, CMB_EQL, CMB_CLN, CMB_CMM, CMB_QUE, CMB_SLS, CT_Z, \
-    CT_S,    RU1,     RU2,     RU3,     RU4,     RU5,     AG_MINS, \
-    CT_D,    RH1,     RH2,     RH3,     RH4,     RH5,     RH6, \
-             RD1,     RD2,     RD3,     RD4,     RD5,     RD6, \
-                      TT_RED,  AG_3DOT, KG_NEXT, TT_GAME, TT_NUCL, \
+    AC_TILD,   EN_CIRC, EN_AMPR, EN_ASTR, AG_EQL,  AG_PLUS,  CT_Z, \
+    CMB_CTS,    RU1,     RU2,     RU3,     RU4,     RU5,     AG_MINS, \
+    CMB_CMSP,    RH1,     RH2,     RH3,     RH4,     RH5,     AG_SCLN, \
+             RD1,     RD2,     RD3,     RD4,     RD5,     AG_SLSH, \
+                      TT_RED,  AG_3DOT, XXXXXXX, TT_GAME, TT_NUCL, \
                       CMB_ALT, /* RIGHT RED THUMB KEY */ \
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ \
   ), \
@@ -264,19 +280,19 @@ enum Layers {
   /*-------------------------------------------------------------------------*/ \
   [L_SHIFT] = MY_layout( \
     /* LEFT HALF */ \
-    _______, _______, _______, _______, _______, AG_CMNT, _______, \
+    _______, AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    _______, \
     _______, SLU1,    SLU2,    SLU3,    SLU4,    SLU5,    CMB_CAC, \
-    _______, SLH1,    SLH2,    SLH3,    SLH4,    SLH5,    CMB_CAV, \
-    SLD0,    SLD1,    SLD2,    SLD3,    SLD4,    SLD5, \
+    EN_AMPR, SLH1,    SLH2,    SLH3,    SLH4,    SLH5,    CMB_CAV, \
+    EN_PIPE, SLD1,    SLD2,    SLD3,    SLD4,    SLD5, \
     _______, _______, _______, _______, _______, \
     _______, /* LEFT RED THUMB KEY */ \
     _______, _______, _______, /* LEFT THUMB KEYS */ \
     \
     /* RIGHT HALF */ \
-    _______, _______, AG2COLN, AG_COMM, _______, AG2SLSH, CT_Y, \
+    _______, AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    CT_Y, \
     _______, SRU1,    SRU2,    SRU3,    SRU4,    SRU5,    _______, \
-    _______, SRH1,    SRH2,    SRH3,    SRH4,    SRH5,    SRH6, \
-             SRD1,    SRD2,    SRD3,    SRD4,    SRD5,    SRD6, \
+    _______, SRH1,    SRH2,    SRH3,    SRH4,    SRH5,    AG_COLN, \
+             SRD1,    SRD2,    SRD3,    SRD4,    SRD5,    AG_QUES, \
                       _______, _______, _______, _______, _______, \
                       _______, /* RIGHT RED THUMB KEY */ \
                       _______, _______, _______ /* RIGHT THUMB KEYS */ \
@@ -288,25 +304,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     L_EN, L_EN_S,
 
     /* Left hand */
-             AC_GRV,  EN_X,    EN_Y,    EN_P,    EN_S_I,
-             EN_A,    EN_O,    EN_E,    EN_U,    EN_I,
-    XXXXXXX, AC_ACT,  EN_Q,    EN_J,    EN_K,    AC_CIRC,
+             EN_Q,  EN_W,    EN_E,    EN_R,    EN_T,
+             EN_A,    EN_S,    EN_D,    EN_F,    EN_G,
+    XXXXXXX, EN_Z, EN_X,    EN_C,    EN_V,    EN_B,
 
     /* Right hand */
-    EN_F,    EN_G,    EN_C,    EN_R,    EN_L,
-    EN_D,    EN_H,    EN_T,    EN_N,    EN_S,    XXXXXXX,
-    EN_B,    EN_M,    EN_W,    EN_V,    EN_Z,    AC_TILD,
+    EN_Y,    EN_U,    EN_I,    EN_O,    EN_P,
+    EN_H,    EN_J,    EN_K,    EN_L,    EN_SCLN,    _______,
+    EN_N,    EN_M,    EN_COMM,    EN_DOT,    EN_SLSH,    _______,
 
     /* ---------------------------- Shift layer ---------------------------- */
     /* Left hand */
-             AC_GRV,  EN_S_X,  EN_S_Y,  EN_S_P,  EN_S_I,
-             EN_S_A,  EN_S_O,  EN_S_E,  EN_S_U,  EN_S_I,
-    _______, AC_ACT,  EN_S_Q,  EN_S_J,  EN_S_K,  AC_CIRC, 
+             EN_S_Q,   EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,
+             EN_S_A,   EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,
+    _______, EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B,
 
     /* Right hand */
-    EN_S_F,  EN_S_G,  EN_S_C,  EN_S_R,  EN_S_L,
-    EN_S_D,  EN_S_H,  EN_S_T,  EN_S_N,  EN_S_S,  _______,
-    EN_S_B,  EN_S_M,  EN_S_W,  EN_S_V,  EN_S_Z,  _______
+    EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,
+    EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L,  EN_COLN,  _______,
+    EN_S_N,  EN_S_M,  EN_LT,  EN_GT,  EN_QUES,  _______
   )
 
   //---------------------------------------------------------------------------
@@ -314,31 +330,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     L_RU, L_RU_S,
 
     /* Left hand */
-             RU_J,    RU_TS,   RU_U,    RU_JE,   RU_F,
-             RU_K,    RU_M,    RU_V,    RU_A,    RU_P,
-    XXXXXXX, RU_JA,   RU_CH,   RU_S,    RU_I,    RU_Y,
+             RU_J,    RU_TS,   RU_U,    CMS_K,   CMS_JE,
+             RU_F,    RU_Y,    RU_V,    RU_A,    RU_P,
+    XXXXXXX, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I,
 
     /* Right hand */
-    RU_SC,   RU_Z,    RU_T,    RU_N,    RU_G,
+    RU_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,
     CMS_R,   RU_O,    RU_L,    RU_D,    RU_ZH,   RU_E,
-    CMS_SH,  RU_SF,   RU_B,    RU_JU,   RU_H,    RU_JO,
+    CMS_T,   RU_SF,   RU_B,    RU_JU,   RU_H,    XXXXXXX,
 
     /* ---------------------------- Shift layer ---------------------------- */
     /* Left hand */
-             RU_S_J,  RU_S_TS, RU_S_U,  RU_S_JE, RU_S_F,
-             RU_S_K,  RU_S_M,  RU_S_V,  RU_S_A,  RU_S_P,
-    _______, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_I,  RU_S_Y,
+             RU_S_J,  RU_S_TS, RU_S_U,  CMS_S_K, CMS_S_JE,
+             RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,
+    _______, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I,
 
     /* Right hand */
-    RU_S_SC, RU_S_Z,  RU_S_T,  RU_S_N,  RU_S_G,
+    RU_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,
     CMS_S_R, RU_S_O,  RU_S_L,  RU_S_D,  RU_S_ZH, RU_S_E,
-    CMS_SSH, RU_S_SF, RU_S_B,  RU_S_JU, RU_S_H,  RU_S_JO
+    CMS_ST,  RU_S_SF, RU_S_B,  RU_S_JU, RU_S_H,  XXXXXXX
   )
 
   //---------------------------------------------------------------------------
   [L_RED] = MY_layout(
     // LEFT HALF
-    TG_RED,  _______, _______, _______, _______, _______, _______,
+    TG_RED,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
     CT_G,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  CT_J,    _______,
     CS_M,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, CS_K,    _______,
     _______, CT_LEFT, CT_DOWN, CT_UP,   CT_RGHT, CT_F,
@@ -347,7 +363,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, // LEFT THUMB KEYS
 
     // RIGHT HALF
-    _______, _______, _______, _______, _______, _______, _______,
+    KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
     CT_PLUS, EN_MACR, CMB_LB2, CMB_RB2, EN_ARR2, EN_ARR1, CT_ENT,
     CT_MINS, KC_TAB,  CMB_LB1, CMB_RB1, CMB_LB4, CMB_RB4, SH_TAB,
              EN_FISH, CMB_LB3, CMB_RB3, EN_LTEQ, EN_GTEQ, EN_CLTG,
@@ -511,17 +527,23 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(CT_V,    /* <- */ CMB_CTV),
   CHORD(CT_X,    /* <- */ CMB_CTC, CMB_CTV),
 
+  // Right Index
+  CHORD(CT_S,    /* <- */ CMB_CTS),
+  CHORD(AG_CMSP, /* <- */ CMB_CMSP),
+  CHORD(AG_COMM, /* <- */ CMB_CTS, CMB_CMSP),
+
   // Left Thumb
   IMMEDIATE_CHORD(SFT_N, SFT_N,     /* <-! */ CMB_SFT),
   CHORD(KC_BSPC, /* <- */ CMB_BSP),
   CHORD(KC_ENT,  /* <- */ CMB_ENT),
   IMMEDIATE_CHORD(CTRL_EN, CTRL_EN, /* <-! */ CMB_CTL),
   CHORD(CT_A,    /* <- */ CMB_SFT, CMB_CTL),
+  CHORD(SFT_N_O, /* <- */ CMB_SFT, CMB_BSP),
   IMMEDIATE_CHORD(TT_GRAY, TT_UNDO, /* <-! */ CMB_SFT, CMB_BSP),
   CHORD(KC_DEL,  /* <- */ CMB_BSP, CMB_CTL),
   CHORD(CT_BSPC, /* <- */ CMB_BSP, CMB_ENT),
   CHORD(CTSH_EN, /* <- */ CMB_SFT, CMB_BSP, CMB_CTL),
-  CHORD(MU_SCR,  /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
+  //CHORD(MU_SCR,  /* <- */ CMB_BSP, CMB_ENT, CMB_CTL),
 
   // Left Left Thumb
   IMMEDIATE_CHORD(TT_VIOL, TT_UNDO, /* <-! */ CMB_LYV),
@@ -551,11 +573,18 @@ const ComboWithKeycode combos[] PROGMEM = {
   // -------------------------------------------------------------------------
   // Russian combos on letters
   CHORD(RU_R,    /* <- */ CMS_R),
-  CHORD(RU_SH,   /* <- */ CMS_SH),
-  CHORD(RU_HD,   /* <- */ CMS_R, CMS_SH),
+  CHORD(RU_T,   /* <- */ CMS_T),
+  CHORD(RU_K,    /* <- */ CMS_K),
+  CHORD(RU_JE,   /* <- */ CMS_JE),
+  CHORD(RU_S_K,  /* <- */ CMS_S_K),
+  CHORD(RU_S_JE, /* <- */ CMS_S_JE),
+  CHORD(RU_HD,   /* <- */ CMS_R, CMS_T),
   CHORD(RU_S_R,  /* <- */ CMS_S_R),
-  CHORD(RU_S_SH, /* <- */ CMS_SSH),
-  CHORD(RU_S_HD, /* <- */ CMS_S_R, CMS_SSH),
+  CHORD(RU_S_T, /* <- */ CMS_ST),
+  CHORD(RU_S_HD, /* <- */ CMS_S_R, CMS_ST),
+  CHORD(RU_JO,   /* <- */ CMS_K, CMS_JE),
+  CHORD(RU_S_JO,   /* <- */ CMS_S_K, CMS_S_JE),
+
 
   // -------------------------------------------------------------------------
   // Number row
@@ -661,8 +690,8 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL] = {
       COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, COLOR_THUMB,
       COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, 
       COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, 
-      COLOR_THUMB,
-      COLOR_THUMB, COLOR_THUMB, COLOR_THUMB, 
+      COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, 
 
       COLOR_ANYFN, COLOR_PINKY, COLOR_PINKY, COLOR_PINKY, COLOR_ANYFN,
       COLOR_PINKY, COLOR_PINKY, COLOR_PINKY, COLOR_PINKY, COLOR_ANYFN,
@@ -671,8 +700,8 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL] = {
       COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, COLOR_THUMB,
       COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, 
       COLOR_INDEX, COLOR_INDEX, COLOR_INDEX, 
-      COLOR_THUMB,
-      COLOR_THUMB, COLOR_THUMB, COLOR_THUMB
+      COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER
     },
 
     [1] = {

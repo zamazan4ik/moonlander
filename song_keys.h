@@ -42,7 +42,6 @@ bool process_my_music_keys(uint16_t keycode, keyrecord_t *record) {
   #define MUSIC_KEYCODE(FROM, TO, SONG) \
     case FROM: \
       if (record->event.pressed) { \
-        PLAY_SONG(SONG); \
         disable_music = true; \
         press_arbitrary_keycode(TO, true); \
         disable_music = false; \
