@@ -137,10 +137,10 @@ LAYOUT_moonlander( \
 #define CMB_ALT CMB_015
 
 // Russian index keys on letters
-#define CMS_R CMB_016
-#define CMS_T CMB_017
-#define CMS_S_R CMB_018
-#define CMS_ST CMB_019
+#define CMS_O CMB_016
+#define CMS_MZ CMB_017
+#define CMS_S_O CMB_018
+#define CMS_S_MZ CMB_019
 
 // Left number-row
 #define CMB_PLS CMB_020
@@ -173,10 +173,21 @@ LAYOUT_moonlander( \
 #define CMB_RCR CMB_041
 
 // Russian index keys on letters
-#define CMS_K CMB_042
-#define CMS_JE CMB_043
-#define CMS_S_K CMB_044
-#define CMS_S_JE CMB_045
+#define CMS_A CMB_042
+#define CMS_K CMB_043
+#define CMS_S_A CMB_044
+#define CMS_S_K CMB_045
+#define CMS_ZH CMB_046
+#define CMS_SEMICOLN CMB_047
+#define CMS_S_ZH CMB_048
+#define CMS_S_COLN CMB_049
+#define CMS_N CMB_050
+#define CMS_S_N CMB_051
+#define CMS_MINS CMB_052
+#define CMS_R CMB_053
+#define CMS_T CMB_054
+#define CMS_S_R CMB_055
+#define CMS_S_T CMB_056
 
 #define TT_CTJ TT_000
 
@@ -263,16 +274,16 @@ enum Layers {
     AG_UNDS, LU1,     LU2,     LU3,     LU4,     LU5,     CMB_CTC, \
     AG_DQUO, LH1,     LH2,     LH3,     LH4,     LH5,     CMB_CTV, \
     EN_QUOT, LD1,     LD2,     LD3,     LD4,     LD5, \
-    MU_CTJ,  TT_YELW, CT_SLSH, CMB_LYG, CMB_LYV, \
+    XXXXXXX,  TT_YELW, XXXXXXX, CMB_LYG, CMB_LYV, \
     CMB_CTL, /* LEFT RED THUMB KEY */ \
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ \
     \
     /* RIGHT HALF */ \
     AC_TILD,   EN_CIRC, EN_AMPR, EN_ASTR, AG_EQL,  AG_PLUS,  CT_Z, \
-    CMB_CTS,    RU1,     RU2,     RU3,     RU4,     RU5,     AG_MINS, \
-    CMB_CMSP,    RH1,     RH2,     RH3,     RH4,     RH5,     AG_SCLN, \
-             RD1,     RD2,     RD3,     RD4,     RD5,     AG_SLSH, \
-                      TT_RED,  AG_3DOT, XXXXXXX, TT_GAME, TT_NUCL, \
+    CMB_CTS,    RU1,     RU2,     RU3,     RU4,     RU5,     CMS_MINS, \
+    CMB_CMSP,    RH1,     RH2,     RH3,     RH4,     RH5,    CMS_SEMICOLN, \
+             RD1,     RD2,     RD3,     RD4,     AG_QUES,    AG_SLSH, \
+                      TT_RED,  XXXXXXX, TT_NUCL, TT_GAME, KC_TAB, \
                       CMB_ALT, /* RIGHT RED THUMB KEY */ \
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ \
   ), \
@@ -291,8 +302,8 @@ enum Layers {
     /* RIGHT HALF */ \
     _______, AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    CT_Y, \
     _______, SRU1,    SRU2,    SRU3,    SRU4,    SRU5,    _______, \
-    _______, SRH1,    SRH2,    SRH3,    SRH4,    SRH5,    AG_COLN, \
-             SRD1,    SRD2,    SRD3,    SRD4,    SRD5,    AG_QUES, \
+    _______, SRH1,    SRH2,    SRH3,    SRH4,    SRH5,    CMS_S_COLN, \
+             SRD1,    SRD2,    SRD3,    SRD4,    AG_QUES, AG_SLSH, \
                       _______, _______, _______, _______, _______, \
                       _______, /* RIGHT RED THUMB KEY */ \
                       _______, _______, _______ /* RIGHT THUMB KEYS */ \
@@ -330,25 +341,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     L_RU, L_RU_S,
 
     /* Left hand */
-             RU_J,    RU_TS,   RU_U,    CMS_K,   CMS_JE,
-             RU_F,    RU_Y,    RU_V,    RU_A,    RU_P,
+             RU_J,    RU_TS,   RU_U,    CMS_K,   RU_JE,
+             RU_F,    RU_Y,    RU_V,    CMS_A,    RU_P,
     XXXXXXX, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I,
 
     /* Right hand */
-    RU_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,
-    CMS_R,   RU_O,    RU_L,    RU_D,    RU_ZH,   RU_E,
-    CMS_T,   RU_SF,   RU_B,    RU_JU,   RU_H,    XXXXXXX,
+    CMS_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,
+    CMS_R,   CMS_O,    RU_L,    RU_D,    RU_ZH,  CMS_SEMICOLN,
+    CMS_T,   CMS_MZ,   RU_B,    RU_JU,   XXXXXXX, XXXXXXX,
 
     /* ---------------------------- Shift layer ---------------------------- */
     /* Left hand */
-             RU_S_J,  RU_S_TS, RU_S_U,  CMS_S_K, CMS_S_JE,
-             RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,
+             RU_S_J,  RU_S_TS, RU_S_U,  CMS_S_K, RU_S_JE,
+             RU_S_F,  RU_S_Y,  RU_S_V,  CMS_S_A,  RU_S_P,
     _______, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I,
 
     /* Right hand */
-    RU_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,
-    CMS_S_R, RU_S_O,  RU_S_L,  RU_S_D,  RU_S_ZH, RU_S_E,
-    CMS_ST,  RU_S_SF, RU_S_B,  RU_S_JU, RU_S_H,  XXXXXXX
+    CMS_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,
+    CMS_S_R, CMS_S_O,  RU_S_L,  RU_S_D,  RU_S_ZH, CMS_S_COLN,
+    CMS_S_T,  CMS_S_MZ, RU_S_B,  RU_S_JU, XXXXXXX, XXXXXXX
   )
 
   //---------------------------------------------------------------------------
@@ -572,19 +583,33 @@ const ComboWithKeycode combos[] PROGMEM = {
 
   // -------------------------------------------------------------------------
   // Russian combos on letters
-  CHORD(RU_R,    /* <- */ CMS_R),
+  CHORD(RU_O,    /* <- */ CMS_O),
+  CHORD(RU_SF,   /* <- */ CMS_MZ),
+  CHORD(RU_A,    /* <- */ CMS_A),
+  CHORD(RU_K,   /* <- */ CMS_K),
+  CHORD(RU_R,   /* <- */ CMS_R),
+  CHORD(RU_S_R,   /* <- */ CMS_S_R),
   CHORD(RU_T,   /* <- */ CMS_T),
-  CHORD(RU_K,    /* <- */ CMS_K),
-  CHORD(RU_JE,   /* <- */ CMS_JE),
-  CHORD(RU_S_K,  /* <- */ CMS_S_K),
-  CHORD(RU_S_JE, /* <- */ CMS_S_JE),
-  CHORD(RU_HD,   /* <- */ CMS_R, CMS_T),
-  CHORD(RU_S_R,  /* <- */ CMS_S_R),
-  CHORD(RU_S_T, /* <- */ CMS_ST),
-  CHORD(RU_S_HD, /* <- */ CMS_S_R, CMS_ST),
-  CHORD(RU_JO,   /* <- */ CMS_K, CMS_JE),
-  CHORD(RU_S_JO,   /* <- */ CMS_S_K, CMS_S_JE),
-
+  CHORD(RU_S_T,   /* <- */ CMS_S_T),
+  CHORD(RU_S_A,  /* <- */ CMS_S_A),
+  CHORD(RU_S_K, /* <- */ CMS_S_K),
+  CHORD(RU_HD,   /* <- */ CMS_O, CMS_MZ),
+  CHORD(RU_S_SF,  /* <- */ CMS_S_MZ),
+  CHORD(RU_S_O, /* <- */ CMS_S_O),
+  CHORD(RU_S_HD, /* <- */ CMS_S_O, CMS_S_MZ),
+  CHORD(RU_JO,   /* <- */ CMS_A, CMS_K),
+  CHORD(RU_S_JO,   /* <- */ CMS_S_A, CMS_S_K),
+  CHORD(RU_ZH,    /* <- */ CMS_ZH),
+  CHORD(RU_S_ZH,    /* <- */ CMS_S_ZH),
+  CHORD(AG_SCLN,    /* <- */ CMS_SEMICOLN),
+  CHORD(AG_COLN,    /* <- */ CMS_S_COLN),
+  CHORD(RU_E,   /* <- */ CMS_R, CMS_T),
+  CHORD(RU_S_E,   /* <- */ CMS_S_R, CMS_S_T),
+  CHORD(RU_N,   /* <- */ CMS_N),
+  CHORD(RU_S_N,  /* <- */ CMS_S_N),
+  CHORD(AG_MINS,   /* <- */ CMS_MINS),
+  CHORD(RU_H,   /* <- */ CMS_N, CMS_R),
+  CHORD(RU_S_H,   /* <- */ CMS_S_N, CMS_S_R),
 
   // -------------------------------------------------------------------------
   // Number row
@@ -705,6 +730,28 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL] = {
     },
 
     [1] = {
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, 
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, 
+      COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, 
+
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, 
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER, 
+      COLOR_LAYER,
+      COLOR_LAYER, COLOR_LAYER, COLOR_LAYER
+    },
+
+    [2] = {
       ___________, ___________, ___________, ___________, ___________,
       ___________, ___________, ___________, ___________, ___________,
       ___________, ___________, ___________, ___________, ___________,
