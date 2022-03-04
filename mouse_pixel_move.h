@@ -22,7 +22,7 @@ enum mouse_pixel_move_keycodes {
   #define CUSTOM_SAFE_RANGE MOUSE_PIXEL_MOVE_NEW_SAFE_RANGE
 };
 
-// Мои языко-символьные клавиши
+// My lang-symbolic buttons
 bool process_mouse_pixel_move(uint16_t keycode, keyrecord_t *record) {
   if (!(MOUSE_PIXEL_MOVE_START < keycode && keycode < MOUSE_PIXEL_MOVE_NEW_SAFE_RANGE)) {
     return true;

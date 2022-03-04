@@ -191,7 +191,7 @@ LAYOUT_moonlander( \
 
 #define TT_CTJ TT_000
 
-// Подключаем обработку кастомных кейкодов
+// Add custom keycode processing
 #include "xcompose.h"
 #include "custom_lang.h"
 #include "custom_hotkeys.h"
@@ -244,7 +244,7 @@ enum Layers {
 #define TT_GAME (TT_000 + L_GAME)
 #define TT_NUCL (TT_000 + L_NUCL)
 
-// Этот макрос нужен, чтобы задавать одинаковые слои (в том числе и шифтовый слой) для английского и русского языка. В итоге их отличия будут только в буквах.
+// This macros is needed for defining equal layers (including Shift layer) for English and Russian languages. At the end their differences will be only in letters
 #define LANG_TWO_LAYERS(\
   L_DEFAULT, L_SHIFT,\
   \
@@ -671,7 +671,7 @@ const ComboWithKeycode combos[] PROGMEM = {
 const uint8_t combos_size = sizeof(combos)/sizeof(ComboWithKeycode);
 
 const uint16_t tt_keys[][3] = {
-  { TT_CTJ, CT_J,  CT_BSLS }, // Убийство программы, если нажать три раза, то выдаёт Ctrl+\, что убивает безоговорочно.
+  { TT_CTJ, CT_J,  CT_BSLS }, // Program killing, if pressed 3 times then throws Ctrl+\, and it kills the program immediately
   { TT_RED,  MO_RED,  TG_RED },
   { TT_GREN, MO_GREN, TG_GREN },
   { TT_VIOL, MO_VIOL, TG_VIOL },
@@ -697,13 +697,13 @@ const uint16_t repeat_keys[][2] = {
 const uint8_t repeat_size = sizeof(repeat_keys)/(sizeof(uint16_t) * 2);
 
 enum ledmap_colors {
-  COLOR_BLACK = COLOR_SAFE_RANGE, // Чёрный цвет
-  COLOR_ANYFN, // Цвет для кнопки, нажимаемой любым пальцем
-  COLOR_PINKY, // Для кнопки нажимаемой мизинцем
-  COLOR_ANNUL, // Безымянным
-  COLOR_MIDDL, // Средним
-  COLOR_INDEX, // Указательным
-  COLOR_THUMB, // Большим пальцем
+  COLOR_BLACK = COLOR_SAFE_RANGE,
+  COLOR_ANYFN,
+  COLOR_PINKY,
+  COLOR_ANNUL,
+  COLOR_MIDDL,
+  COLOR_INDEX,
+  COLOR_THUMB,
 };
 
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL] = {
@@ -819,7 +819,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     uint8_t layer = get_highest_layer(state);
 
-    // Устанавливаем текущий цвет клавиатуры таким же какой сейчас цвет у слоя. Это создаёт красивый эффект для подсветок, которые используют текущий цвет.
+    // Set up the current keyboard color the same as the current layer. It creates a beautiful effect for highlighting that use the current color
     rgb_matrix_sethsv_noeeprom(
       pgm_read_byte(&layermap[layer][0]),
       pgm_read_byte(&layermap[layer][1]),
@@ -907,7 +907,7 @@ void matrix_scan_user(void) {
   user_timer();
 }
 
-// Нужно для color.h
+// Neede for color.h
 void rgb_matrix_indicators_user(void) {
   color_rgb_matrix_indicators();
 }

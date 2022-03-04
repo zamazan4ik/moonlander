@@ -32,7 +32,7 @@ enum custom_lang_keycodes {
   #define CUSTOM_SAFE_RANGE CUSTOM_LANG_NEW_SAFE_RANGE
 };
 
-// Мои языко-символьные клавиши
+// My lang-symbolic buttons
 bool process_my_lang_keys(uint16_t keycode, keyrecord_t *record) {
   // English-specific codes
   switch (keycode) {

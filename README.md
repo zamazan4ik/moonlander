@@ -1,12 +1,17 @@
-# Раскладка Ильи Шепрута
+# Moonlander keyboard layout from zamazan4ik
 
-Про эту раскладку я написал большую статью, которую можно прочитать по ссылке ниже.
+My layout for the Moonlander keyboard: https://www.zsa.io/moonlander
 
-# [Читать статью](https://optozorax.github.io/p/my-keyboard-layout/)
+This layout is mostly based on the following works:
 
-## Как прошить
+* https://github.com/optozorax/moonlander
+* https://github.com/mersinvald/moonlander
 
-Если вы попробуете скачать исходный код вашей раскладки, сделанной на Oryx, то она будет работать только с [форком QMK от ZSA](https://github.com/zsa/qmk_firmware). Конечно, можно использовать обычный QMK, но там вроде чего-то не хватает. Поэтому первым делом надо скачать этот форк (команды ниже не работают для винды).
+For some deep details about the layout I highly recommend read this article (in Russian): [link](https://optozorax.github.io/p/my-keyboard-layout/)
+
+## How to install
+
+This layout works only with ZSA fork of [QMK firmware](https://github.com/zsa/qmk_firmware). So, before the start you need to install it.
 
 ```bash
 git clone https://github.com/zsa/qmk_firmware zsa_qmk
@@ -16,13 +21,13 @@ git submodule init
 git submodule update
 ```
 
-Затем нужно создать символьную ссылку на папку с вашей раскладкой. Делать именно символьную ссылку нужно, чтобы не хранить свою раскладку где-то в дебрях этого форка QMK:
+Then, you need to create a symbolic link to the directory with your layout. It`s needed for keeping your keyboard outside of QMK internals:
 
 ```bash
 ln -s /home/optozorax/my/moonlander ~/zsa_qmk/keyboards/moonlander/keymaps/optozorax
 ```
 
-Чтобы прошить, нужно внутри этого форка вызвать такую команду:
+For installing your layout into the keyboard, execute the following command:
 ```bash
 make moonlander:optozorax:flash
 ```

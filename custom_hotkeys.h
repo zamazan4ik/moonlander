@@ -24,7 +24,7 @@ enum custom_hotkeys_keycodes {
   #define CUSTOM_SAFE_RANGE CUSTOM_HOTKEYS_NEW_SAFE_RANGE
 };
 
-// Мои языко-символьные клавиши
+// My lang-symbolic buttons
 bool process_my_hotkeys(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case KG_NEXT:

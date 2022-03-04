@@ -19,7 +19,7 @@ enum moonlander_leds_keycodes {
   #define CUSTOM_SAFE_RANGE MOONLANDER_LEDS_NEW_SAFE_RANGE
 };
 
-// Мои языко-символьные клавиши
+// My lang-symbolic buttons
 bool process_moonlander_leds(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case LED_1: if (record->event.pressed) { ML_LED_1(true); } else { ML_LED_1(false); } return false; break;

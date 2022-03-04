@@ -72,6 +72,7 @@ enum custom_xcompose_keycodes {
 };
 
 // Мои языко-символьные клавиши
+// My lang-symbolic buttons
 bool process_my_xcompose(uint16_t keycode, keyrecord_t *record) {
   #define PRESS(X) tap_code16(X);
   #define COMPOSE PRESS(KC_SLCK)

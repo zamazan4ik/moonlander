@@ -21,7 +21,7 @@ enum songs_keycodes {
   #define CUSTOM_SAFE_RANGE SONGS_NEW_SAFE_RANGE
 };
 
-// Музыка обязательно должна находиться вне функции, потому что она проигрывается асинхронно...
+// Music must be outside of the function, since it`s playing asynchronously
 float my_song1[][2] = SONG(QWERTY_SOUND);
 float my_song2[][2] = SONG(PLANCK_SOUND);
 float my_song3[][2] = SONG(AG_SWAP_SOUND);
@@ -29,7 +29,7 @@ float my_song4[][2] = SONG(VIOLIN_SOUND);
 float my_song5[][2] = SONG(GUITAR_SOUND);
 float my_song6[][2] = SONG(CHROMATIC_SOUND);
 
-// Эта функция должна находиться самой последней по приоритету
+// This function must be located at the end based on priority
 bool process_my_music_keys(uint16_t keycode, keyrecord_t *record) {
   // https://github.com/qmk/qmk_firmware/blob/master/quantum/audio/song_list.h
   // https://docs.qmk.fm/#/feature_audio
