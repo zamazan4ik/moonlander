@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include <quantum/pointing_device.h>
 #include "version.h"
+#include "raw_hid.h"
 
 #include "arbitrary_keycode/include.h"
 
@@ -544,7 +545,8 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(AG_COMM, /* <- */ CMB_CTS, CMB_CMSP),
 
   // Left Thumb
-  IMMEDIATE_CHORD(SFT_N, SFT_N,     /* <-! */ CMB_SFT),
+  //IMMEDIATE_CHORD(SFT_N, SFT_N,     /* <-! */ CMB_SFT),
+  CHORD(SFT_N, /* <- */ CMB_SFT),
   CHORD(KC_BSPC, /* <- */ CMB_BSP),
   CHORD(KC_ENT,  /* <- */ CMB_ENT),
   IMMEDIATE_CHORD(CTRL_EN, CTRL_EN, /* <-! */ CMB_CTL),
@@ -562,7 +564,7 @@ const ComboWithKeycode combos[] PROGMEM = {
   IMMEDIATE_CHORD(TT_RED,  TT_UNDO, /* <-! */ CMB_LYV, CMB_LYG),
 
   // Right Thumb
-  CHORD(MU_LANG, /* <- */ CMB_LAN),
+  CHORD(LA_CHNG, /* <- */ CMB_LAN),
   CHORD(AG_DOT,  /* <- */ CMB_DOT),
   CHORD(KC_SPC,  /* <- */ CMB_SPC),
   CHORD(ALT_EN,  /* <- */ CMB_ALT),
@@ -914,4 +916,18 @@ void rgb_matrix_indicators_user(void) {
 
 void keyboard_post_init_user(void) {
   rgb_matrix_enable();
+}
+
+void raw_hid_receive(uint8_t *data, uint8_t length) {
+    int current_lang = data[0];
+    lang_should_be = current_lang;
+    lang_current = current_lang;
+    
+    if (current_lang == 1) {
+        //lang_activate_from_user(1);
+        layer_on(2);
+    } else {
+        //lang_activate_from_user(0);
+        layer_off(2);
+    }
 }
