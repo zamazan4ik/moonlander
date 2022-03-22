@@ -94,20 +94,20 @@ bool color_process_record(uint16_t keycode, keyrecord_t *record) {
 
 		case RGB_PRT: 
 		if (record->event.pressed) {
-			uprintf(
-				"enabled: %d, "
-				"mode: %d, "
-				"HSV: (%d, %d, %d), "
-				"speed: %d, "
-				"suspend state: %d\n", 
-				rgb_matrix_is_enabled(),
-				rgb_matrix_get_mode(),
-				rgb_matrix_get_hue(),
-				rgb_matrix_get_sat(),
-				rgb_matrix_get_val(),
-				rgb_matrix_get_speed(),
-				rgb_matrix_get_suspend_state()
-			);
+			// uprintf(
+			// 	"enabled: %d, "
+			// 	"mode: %d, "
+			// 	"HSV: (%d, %d, %d), "
+			// 	"speed: %d, "
+			// 	"suspend state: %d\n", 
+			// 	rgb_matrix_is_enabled(),
+			// 	rgb_matrix_get_mode(),
+			// 	rgb_matrix_get_hue(),
+			// 	rgb_matrix_get_sat(),
+			// 	rgb_matrix_get_val(),
+			// 	rgb_matrix_get_speed(),
+			// 	rgb_matrix_get_suspend_state()
+			// );
 		}
 		return false;
 		break;

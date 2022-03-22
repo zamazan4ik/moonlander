@@ -275,16 +275,16 @@ enum Layers {
     AG_UNDS, LU1,     LU2,     LU3,     LU4,     LU5,     CMB_CTC, \
     AG_DQUO, LH1,     LH2,     LH3,     LH4,     LH5,     CMB_CTV, \
     EN_QUOT, LD1,     LD2,     LD3,     LD4,     LD5, \
-    XXXXXXX,  TT_YELW, XXXXXXX, CMB_LYG, CMB_LYV, \
+    EN_PIPE, XXXXXXX, XXXXXXX, CMB_LYG, CMB_LYV, \
     CMB_CTL, /* LEFT RED THUMB KEY */ \
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ \
     \
     /* RIGHT HALF */ \
     AC_TILD,   EN_CIRC, EN_AMPR, EN_ASTR, AG_EQL,  AG_PLUS,  CT_Z, \
     CMB_CTS,    RU1,     RU2,     RU3,     RU4,     RU5,     CMS_MINS, \
-    CMB_CMSP,    RH1,     RH2,     RH3,     RH4,     RH5,    CMS_SEMICOLN, \
-             RD1,     RD2,     RD3,     RD4,     AG_QUES,    AG_SLSH, \
-                      TT_RED,  XXXXXXX, TT_NUCL, TT_GAME, KC_TAB, \
+    CMB_CMSP,    RH1,     RH2,     RH3,     RH4,     RH5,    AG_SCLN, \
+             RD1,     RD2,     RD3,     RD4,     CMB_QUE,    CMB_CLN, \
+                      TT_RED,  XXXXXXX, TT_NUCL, TT_GAME,    AG_SLSH, \
                       CMB_ALT, /* RIGHT RED THUMB KEY */ \
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ \
   ), \
@@ -294,8 +294,8 @@ enum Layers {
     /* LEFT HALF */ \
     _______, AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    _______, \
     _______, SLU1,    SLU2,    SLU3,    SLU4,    SLU5,    CMB_CAC, \
-    EN_AMPR, SLH1,    SLH2,    SLH3,    SLH4,    SLH5,    CMB_CAV, \
-    EN_PIPE, SLD1,    SLD2,    SLD3,    SLD4,    SLD5, \
+    _______, SLH1,    SLH2,    SLH3,    SLH4,    SLH5,    CMB_CAV, \
+    _______, SLD1,    SLD2,    SLD3,    SLD4,    SLD5, \
     _______, _______, _______, _______, _______, \
     _______, /* LEFT RED THUMB KEY */ \
     _______, _______, _______, /* LEFT THUMB KEYS */ \
@@ -303,8 +303,8 @@ enum Layers {
     /* RIGHT HALF */ \
     _______, AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    CT_Y, \
     _______, SRU1,    SRU2,    SRU3,    SRU4,    SRU5,    _______, \
-    _______, SRH1,    SRH2,    SRH3,    SRH4,    SRH5,    CMS_S_COLN, \
-             SRD1,    SRD2,    SRD3,    SRD4,    AG_QUES, AG_SLSH, \
+    _______, SRH1,    SRH2,    SRH3,    SRH4,    SRH5,    _______, \
+             SRD1,    SRD2,    SRD3,    SRD4,    _______, _______, \
                       _______, _______, _______, _______, _______, \
                       _______, /* RIGHT RED THUMB KEY */ \
                       _______, _______, _______ /* RIGHT THUMB KEYS */ \
@@ -348,7 +348,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Right hand */
     CMS_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,
-    CMS_R,   CMS_O,    RU_L,    RU_D,    RU_ZH,  CMS_SEMICOLN,
+    CMS_R,   CMS_O,    RU_L,    RU_D,    RU_ZH,  XXXXXXX,
     CMS_T,   CMS_MZ,   RU_B,    RU_JU,   XXXXXXX, XXXXXXX,
 
     /* ---------------------------- Shift layer ---------------------------- */
@@ -359,7 +359,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Right hand */
     CMS_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,
-    CMS_S_R, CMS_S_O,  RU_S_L,  RU_S_D,  RU_S_ZH, CMS_S_COLN,
+    CMS_S_R, CMS_S_O,  RU_S_L,  RU_S_D,  RU_S_ZH, XXXXXXX,
     CMS_S_T,  CMS_S_MZ, RU_S_B,  RU_S_JU, XXXXXXX, XXXXXXX
   )
 
@@ -397,9 +397,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // RIGHT HALF
     _______, _______, _______, _______, _______, _______, RESET,
-    _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,  _______,
-    _______, _______, KC_F10,  KC_F1,   KC_F2,   KC_F3,   _______,
-             _______, KC_F9,   KC_F8,   KC_F7,   KC_F12,  _______,
+    _______, _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
+    _______, _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,
+             _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,  _______,
                       _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
@@ -418,10 +418,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // RIGHT HALF
     _______, _______, _______, _______, _______, _______, _______,
-    _______, AC_SUB,  AG_4,    AG_5,    AG_6,    _______, _______,
-    _______, AC_SUP,  AG_0,    AG_1,    AG_2,    AG_3,    _______,
-             AC_CRCL, AG_9,    AG_8,    AG_7,    _______, _______,
-                      TT_CYAN, _______, _______, _______, _______,
+    _______, AC_SUB,  AG_7,    AG_8,    AG_9,    _______, _______,
+    _______, AC_SUP,  AG_4,    AG_5,    AG_6,    AG_0,    _______,
+             AC_CRCL, AG_1,    AG_2,    AG_3,    _______, _______,
+                      _______, _______, _______, _______, _______,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
   ),
@@ -571,9 +571,10 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(AG_SDOT, /* <- */ CMB_DOT, CMB_SPC),
   CHORD(LA_SYNC, /* <- */ CMB_LAN, CMB_DOT),
   CHORD(CTAL_EN, /* <- */ CMB_SPC, CMB_ALT),
-  CHORD(SHAL_EN, /* <- */ CMB_DOT, CMB_ALT),
+  //CHORD(SHAL_EN, /* <- */ CMB_DOT, CMB_ALT),
+  CHORD(KC_TAB, /* <- */ CMB_DOT, CMB_ALT),
   CHORD(WIN_EN,  /* <- */ CMB_SPC, CMB_DOT, CMB_ALT),
-  CHORD(MU_WNL,  /* <- */ CMB_LAN, CMB_DOT, CMB_ALT),
+  //CHORD(MU_WNL,  /* <- */ CMB_LAN, CMB_DOT, CMB_ALT),
 
   // -------------------------------------------------------------------------
   // Shifted index keys
@@ -781,7 +782,7 @@ const uint8_t PROGMEM colormap[][3] = {
   [COLOR_BLACK] = { 0, 0, 0 },
   [COLOR_ANYFN] = { 0, 0, 255 },
   [COLOR_PINKY] = { 31, 255, 255 },
-  [COLOR_ANNUL] = { 164, 255, 255 },
+  [COLOR_ANNUL] = { 164, 255, 255 },  
   [COLOR_MIDDL] = { 76, 255, 255 },
   [COLOR_INDEX] = { 224, 255, 255 },
   [COLOR_THUMB] = { 8, 255, 255 },
@@ -789,8 +790,8 @@ const uint8_t PROGMEM colormap[][3] = {
 const uint8_t colormap_size = sizeof(colormap)/(sizeof(uint8_t) * 3);
 
 const uint8_t PROGMEM layermap[][3] = {
-  [L_EN] = { 0, 0, 255 },
-  [L_EN_S] = { 0, 0, 192 },
+  [L_EN] = { 84, 33, 255 },
+  [L_EN_S] = { 84, 33, 192 },
 
   [L_RU] = { 164, 255, 255 },
   [L_RU_S] = { 164, 255, 192 },
@@ -885,18 +886,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 float error_song1[][2] = SONG(MUSIC_OFF_SOUND);
 void combo_max_count_error(void) {
   PLAY_SONG(error_song1);
-  uprintf("COMBO ERROR: MAX COMBOS COUNT HAS REACHED\n");
+  dprintf("COMBO ERROR: MAX COMBOS COUNT HAS REACHED\n");
 }
 
 float error_song2[][2] = SONG(VOICE_CHANGE_SOUND);
 void combo_max_size_error(void) {
   PLAY_SONG(error_song2); 
-  uprintf("COMBO ERROR: MAX COMBO SIZE HAS REACHED\n");
+  dprintf("COMBO ERROR: MAX COMBO SIZE HAS REACHED\n");
 }
 
 void repeated_key_error(void) {
   PLAY_SONG(error_song2); 
-  uprintf("REPEATED KEY ERROR\n"); 
+  dprintf("REPEATED KEY ERROR\n");
 }
 
 void user_timer(void) {
@@ -909,25 +910,30 @@ void matrix_scan_user(void) {
   user_timer();
 }
 
-// Neede for color.h
+// Need for color.h
 void rgb_matrix_indicators_user(void) {
   color_rgb_matrix_indicators();
 }
 
 void keyboard_post_init_user(void) {
   rgb_matrix_enable();
+  debug_enable=true;
 }
 
 void raw_hid_receive(uint8_t *data, uint8_t length) {
-    int current_lang = data[0];
-    lang_should_be = current_lang;
-    lang_current = current_lang;
-    
-    if (current_lang == 1) {
-        //lang_activate_from_user(1);
-        layer_on(2);
-    } else {
-        //lang_activate_from_user(0);
-        layer_off(2);
+    dprintf("Server state - %s\n", temporarily_disable_server ? "true" : "false");
+
+    if (!temporarily_disable_server)
+    {
+        dprintf("Inside Server state");
+        int current_lang = data[0];
+        lang_should_be = current_lang;
+        lang_current = current_lang;
+
+        if (current_lang == 1) {
+            layer_on(2);
+        } else {
+            layer_off(2);
+        }
     }
 }
