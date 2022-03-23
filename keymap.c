@@ -284,7 +284,7 @@ enum Layers {
     CMB_CTS,    RU1,     RU2,     RU3,     RU4,     RU5,     CMS_MINS, \
     CMB_CMSP,    RH1,     RH2,     RH3,     RH4,     RH5,    AG_SCLN, \
              RD1,     RD2,     RD3,     RD4,     CMB_QUE,    CMB_CLN, \
-                      TT_RED,  XXXXXXX, TT_NUCL, TT_GAME,    AG_SLSH, \
+                      TT_RED,  KC_RCTL, TT_NUCL, TT_GAME,    AG_SLSH, \
                       CMB_ALT, /* RIGHT RED THUMB KEY */ \
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ \
   ), \
