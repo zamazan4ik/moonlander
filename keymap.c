@@ -900,10 +900,20 @@ void repeated_key_error(void) {
   dprintf("REPEATED KEY ERROR\n");
 }
 
+void language_server_timer(void)
+{
+  if (timer_read() - lang_timer >= LANG_SHIFT_LANG_WAIT_TIME)
+  {
+    temporarily_disable_server = false;
+    dprintf("Enabled server\n");
+	}
+}
+
 void user_timer(void) {
   combo_user_timer();
   lang_shift_user_timer();
   rp_timer();
+  language_server_timer();
 }
 
 void matrix_scan_user(void) {
@@ -917,7 +927,7 @@ void rgb_matrix_indicators_user(void) {
 
 void keyboard_post_init_user(void) {
   rgb_matrix_enable();
-  debug_enable=true;
+  //debug_enable=true;
 }
 
 void raw_hid_receive(uint8_t *data, uint8_t length) {
