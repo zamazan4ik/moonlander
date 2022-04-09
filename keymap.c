@@ -175,20 +175,75 @@ LAYOUT_moonlander( \
 
 // Russian index keys on letters
 #define CMS_A CMB_042
-#define CMS_K CMB_043
 #define CMS_S_A CMB_044
-#define CMS_S_K CMB_045
+//#define CMS_S_K CMB_045
 #define CMS_ZH CMB_046
 #define CMS_SEMICOLN CMB_047
 #define CMS_S_ZH CMB_048
 #define CMS_S_COLN CMB_049
-#define CMS_N CMB_050
-#define CMS_S_N CMB_051
+//#define CMS_N CMB_050
+//#define CMS_S_N CMB_051
 #define CMS_MINS CMB_052
 #define CMS_R CMB_053
 #define CMS_T CMB_054
 #define CMS_S_R CMB_055
 #define CMS_S_T CMB_056
+
+// Digit combos
+#define CMS_1 CMB_057
+#define CMS_2 CMB_058
+#define CMS_3 CMB_059
+#define CMS_4 CMB_060
+#define CMS_5 CMB_061
+#define CMS_6 CMB_062
+#define CMS_7 CMB_063
+#define CMS_8 CMB_064
+#define CMS_9 CMB_065
+#define CMS_0 CMB_066
+
+#define CMS_EN_Q CMB_067
+#define CMS_EN_W CMB_068
+#define CMS_EN_E CMB_069
+#define CMS_EN_R CMB_070
+#define CMS_EN_T CMB_071
+#define CMS_EN_Y CMB_072
+#define CMS_EN_U CMB_073
+#define CMS_EN_I CMB_074
+#define CMS_EN_O CMB_075
+#define CMS_EN_P CMB_076
+
+#define CMS_S_EN_Q CMB_077
+#define CMS_S_EN_W CMB_078
+#define CMS_S_EN_E CMB_079
+#define CMS_S_EN_R CMB_080
+#define CMS_S_EN_T CMB_081
+#define CMS_S_EN_Y CMB_082
+#define CMS_S_EN_U CMB_083
+#define CMS_S_EN_I CMB_084
+#define CMS_S_EN_O CMB_085
+#define CMS_S_EN_P CMB_086
+
+#define CMS_RU_J CMB_087
+#define CMS_RU_TS CMB_088
+#define CMS_RU_U CMB_089
+#define CMS_RU_K CMB_090
+#define CMS_RU_JE CMB_091
+#define CMS_RU_N CMB_092
+#define CMS_RU_G CMB_093
+#define CMS_RU_SH CMB_094
+#define CMS_RU_SC CMB_095
+#define CMS_RU_Z CMB_096
+
+#define CMS_S_RU_J CMB_097
+#define CMS_S_RU_TS CMB_098
+#define CMS_S_RU_U CMB_099
+#define CMS_S_RU_K CMB_100
+#define CMS_S_RU_JE CMB_101
+#define CMS_S_RU_N CMB_102
+#define CMS_S_RU_G CMB_103
+#define CMS_S_RU_SH CMB_104
+#define CMS_S_RU_SC CMB_105
+#define CMS_S_RU_Z CMB_106
 
 #define TT_CTJ TT_000
 
@@ -271,7 +326,7 @@ enum Layers {
   /*-------------------------------------------------------------------------*/ \
   [L_DEFAULT] = MY_layout( \
     /* LEFT HALF */ \
-    KC_ESC,  AG_EXCL, EN_AT,   EN_HASH, EN_DLR,  AG_PERC, EN_GRV, \
+    KC_ESC,  CMS_1,   CMS_2,   CMS_3,   CMS_4,   CMS_5, EN_GRV, \
     AG_UNDS, LU1,     LU2,     LU3,     LU4,     LU5,     CMB_CTC, \
     AG_DQUO, LH1,     LH2,     LH3,     LH4,     LH5,     CMB_CTV, \
     EN_QUOT, LD1,     LD2,     LD3,     LD4,     LD5, \
@@ -280,11 +335,11 @@ enum Layers {
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ \
     \
     /* RIGHT HALF */ \
-    AC_TILD,   EN_CIRC, EN_AMPR, EN_ASTR, AG_EQL,  AG_PLUS,  CT_Z, \
+    AC_TILD,    CMS_6,   CMS_7,   CMS_8,   CMS_9,   CMS_0,   CT_Z, \
     CMB_CTS,    RU1,     RU2,     RU3,     RU4,     RU5,     CMS_MINS, \
-    CMB_CMSP,    RH1,     RH2,     RH3,     RH4,     RH5,    AG_SCLN, \
-             RD1,     RD2,     RD3,     RD4,     CMB_QUE,    CMB_CLN, \
-                      TT_RED,  KC_RCTL, TT_NUCL, TT_GAME,    AG_SLSH, \
+    CMB_CMSP,   RH1,     RH2,     RH3,     RH4,     RH5,     AG_SCLN, \
+                RD1,     RD2,     RD3,     RD4,     CMB_QUE, CMB_CLN, \
+                         TT_RED,  KC_RCTL, TT_NUCL, TT_GAME, AG_SLSH, \
                       CMB_ALT, /* RIGHT RED THUMB KEY */ \
                       CMB_LAN, CMB_DOT, CMB_SPC /* RIGHT THUMB KEYS */ \
   ), \
@@ -292,7 +347,7 @@ enum Layers {
   /*-------------------------------------------------------------------------*/ \
   [L_SHIFT] = MY_layout( \
     /* LEFT HALF */ \
-    _______, AG_1,    AG_2,    AG_3,    AG_4,    AG_5,    _______, \
+    _______, CMS_1,   CMS_2,   CMS_3,   CMS_4,   CMS_5,    _______, \
     _______, SLU1,    SLU2,    SLU3,    SLU4,    SLU5,    CMB_CAC, \
     _______, SLH1,    SLH2,    SLH3,    SLH4,    SLH5,    CMB_CAV, \
     _______, SLD1,    SLD2,    SLD3,    SLD4,    SLD5, \
@@ -301,7 +356,7 @@ enum Layers {
     _______, _______, _______, /* LEFT THUMB KEYS */ \
     \
     /* RIGHT HALF */ \
-    _______, AG_6,    AG_7,    AG_8,    AG_9,    AG_0,    CT_Y, \
+    _______, CMS_6,   CMS_7,   CMS_8,   CMS_9,   CMS_0,    CT_Y, \
     _______, SRU1,    SRU2,    SRU3,    SRU4,    SRU5,    _______, \
     _______, SRH1,    SRH2,    SRH3,    SRH4,    SRH5,    _______, \
              SRD1,    SRD2,    SRD3,    SRD4,    _______, _______, \
@@ -316,25 +371,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     L_EN, L_EN_S,
 
     /* Left hand */
-             EN_Q,  EN_W,    EN_E,    EN_R,    EN_T,
-             EN_A,    EN_S,    EN_D,    EN_F,    EN_G,
-    XXXXXXX, EN_Z, EN_X,    EN_C,    EN_V,    EN_B,
+             CMS_EN_Q, CMS_EN_W,   CMS_EN_E,   CMS_EN_R,   CMS_EN_T,
+             EN_A,     EN_S,       EN_D,       EN_F,       EN_G,
+    XXXXXXX, EN_Z,     EN_X,       EN_C,       EN_V,       EN_B,
 
     /* Right hand */
-    EN_Y,    EN_U,    EN_I,    EN_O,    EN_P,
-    EN_H,    EN_J,    EN_K,    EN_L,    EN_SCLN,    _______,
-    EN_N,    EN_M,    EN_COMM,    EN_DOT,    EN_SLSH,    _______,
+    CMS_EN_Y,   CMS_EN_U,   CMS_EN_I,   CMS_EN_O,   CMS_EN_P,
+    EN_H,       EN_J,       EN_K,       EN_L,       EN_SCLN,    _______,
+    EN_N,       EN_M,       EN_COMM,    EN_DOT,     EN_SLSH,    _______,
 
     /* ---------------------------- Shift layer ---------------------------- */
     /* Left hand */
-             EN_S_Q,   EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,
-             EN_S_A,   EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,
-    _______, EN_S_Z,  EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B,
+             CMS_S_EN_Q,   CMS_S_EN_W,  CMS_S_EN_E,  CMS_S_EN_R,  CMS_S_EN_T,
+             EN_S_A,       EN_S_S,      EN_S_D,      EN_S_F,      EN_S_G,
+    _______, EN_S_Z,       EN_S_X,      EN_S_C,      EN_S_V,      EN_S_B,
 
     /* Right hand */
-    EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,
-    EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L,  EN_COLN,  _______,
-    EN_S_N,  EN_S_M,  EN_LT,  EN_GT,  EN_QUES,  _______
+    CMS_S_EN_Y, CMS_S_EN_U, CMS_S_EN_I, CMS_S_EN_O, CMS_S_EN_P,
+    EN_S_H,     EN_S_J,     EN_S_K,     EN_S_L,     EN_COLN,  _______,
+    EN_S_N,     EN_S_M,     EN_LT,      EN_GT,      EN_QUES,  _______
   )
 
   //---------------------------------------------------------------------------
@@ -342,25 +397,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     L_RU, L_RU_S,
 
     /* Left hand */
-             RU_J,    RU_TS,   RU_U,    CMS_K,   RU_JE,
-             RU_F,    RU_Y,    RU_V,    CMS_A,    RU_P,
-    XXXXXXX, RU_JA,   RU_CH,   RU_S,    RU_M,    RU_I,
+             CMS_RU_J,    CMS_RU_TS,   CMS_RU_U,    CMS_RU_K,   CMS_RU_JE,
+             RU_F,        RU_Y,        RU_V,        CMS_A,      RU_P,
+    XXXXXXX, RU_JA,       RU_CH,       RU_S,        RU_M,       RU_I,
 
     /* Right hand */
-    CMS_N,    RU_G,    RU_SH,   RU_SC,   RU_Z,
-    CMS_R,   CMS_O,    RU_L,    RU_D,    RU_ZH,  XXXXXXX,
-    CMS_T,   CMS_MZ,   RU_B,    RU_JU,   XXXXXXX, XXXXXXX,
+    CMS_RU_N,    CMS_RU_G,    CMS_RU_SH,   CMS_RU_SC,   CMS_RU_Z,
+    CMS_R,       CMS_O,       RU_L,        RU_D,        RU_ZH,   XXXXXXX,
+    CMS_T,       CMS_MZ,      RU_B,        RU_JU,       XXXXXXX, XXXXXXX,
 
     /* ---------------------------- Shift layer ---------------------------- */
     /* Left hand */
-             RU_S_J,  RU_S_TS, RU_S_U,  CMS_S_K, RU_S_JE,
-             RU_S_F,  RU_S_Y,  RU_S_V,  CMS_S_A,  RU_S_P,
-    _______, RU_S_JA, RU_S_CH, RU_S_S,  RU_S_M,  RU_S_I,
+             CMS_S_RU_J,  CMS_S_RU_TS, CMS_S_RU_U,  CMS_S_RU_K, CMS_S_RU_JE,
+             RU_S_F,      RU_S_Y,      RU_S_V,      CMS_S_A,    RU_S_P,
+    _______, RU_S_JA,     RU_S_CH,     RU_S_S,      RU_S_M,     RU_S_I,
 
     /* Right hand */
-    CMS_S_N,  RU_S_G,  RU_S_SH, RU_S_SC, RU_S_Z,
-    CMS_S_R, CMS_S_O,  RU_S_L,  RU_S_D,  RU_S_ZH, XXXXXXX,
-    CMS_S_T,  CMS_S_MZ, RU_S_B,  RU_S_JU, XXXXXXX, XXXXXXX
+    CMS_S_RU_N,  CMS_S_RU_G,   CMS_S_RU_SH, CMS_S_RU_SC, CMS_S_RU_Z,
+    CMS_S_R,     CMS_S_O,      RU_S_L,      RU_S_D,      RU_S_ZH,   XXXXXXX,
+    CMS_S_T,     CMS_S_MZ,     RU_S_B,      RU_S_JU,     XXXXXXX,   XXXXXXX
   )
 
   //---------------------------------------------------------------------------
@@ -589,33 +644,151 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(RU_O,    /* <- */ CMS_O),
   CHORD(RU_SF,   /* <- */ CMS_MZ),
   CHORD(RU_A,    /* <- */ CMS_A),
-  CHORD(RU_K,   /* <- */ CMS_K),
+  //CHORD(RU_K,   /* <- */ CMS_RU_K),
   CHORD(RU_R,   /* <- */ CMS_R),
   CHORD(RU_S_R,   /* <- */ CMS_S_R),
   CHORD(RU_T,   /* <- */ CMS_T),
   CHORD(RU_S_T,   /* <- */ CMS_S_T),
   CHORD(RU_S_A,  /* <- */ CMS_S_A),
-  CHORD(RU_S_K, /* <- */ CMS_S_K),
+  //CHORD(RU_S_K, /* <- */ CMS_S_RU_K),
   CHORD(RU_HD,   /* <- */ CMS_O, CMS_MZ),
   CHORD(RU_S_SF,  /* <- */ CMS_S_MZ),
   CHORD(RU_S_O, /* <- */ CMS_S_O),
   CHORD(RU_S_HD, /* <- */ CMS_S_O, CMS_S_MZ),
-  CHORD(RU_JO,   /* <- */ CMS_A, CMS_K),
-  CHORD(RU_S_JO,   /* <- */ CMS_S_A, CMS_S_K),
+  CHORD(RU_JO,   /* <- */ CMS_A, CMS_RU_K),
+  CHORD(RU_S_JO,   /* <- */ CMS_S_A, CMS_S_RU_K),
   CHORD(RU_ZH,    /* <- */ CMS_ZH),
   CHORD(RU_S_ZH,    /* <- */ CMS_S_ZH),
   CHORD(AG_SCLN,    /* <- */ CMS_SEMICOLN),
   CHORD(AG_COLN,    /* <- */ CMS_S_COLN),
   CHORD(RU_E,   /* <- */ CMS_R, CMS_T),
   CHORD(RU_S_E,   /* <- */ CMS_S_R, CMS_S_T),
-  CHORD(RU_N,   /* <- */ CMS_N),
-  CHORD(RU_S_N,  /* <- */ CMS_S_N),
+  //CHORD(RU_N,   /* <- */ CMS_RU_N),
+  //CHORD(RU_S_N,  /* <- */ CMS_S_RU_N),
   CHORD(AG_MINS,   /* <- */ CMS_MINS),
-  CHORD(RU_H,   /* <- */ CMS_N, CMS_R),
-  CHORD(RU_S_H,   /* <- */ CMS_S_N, CMS_S_R),
+  CHORD(RU_H,   /* <- */ CMS_RU_N, CMS_R),
+  CHORD(RU_S_H,   /* <- */ CMS_S_RU_N, CMS_S_R),
 
   // -------------------------------------------------------------------------
   // Number row
+  CHORD(AG_1,    /* <- */ CMS_1),
+  CHORD(AG_2,    /* <- */ CMS_2),
+  CHORD(AG_3,    /* <- */ CMS_3),
+  CHORD(AG_4,    /* <- */ CMS_4),
+  CHORD(AG_5,    /* <- */ CMS_5),
+  CHORD(AG_6,    /* <- */ CMS_6),
+  CHORD(AG_7,    /* <- */ CMS_7),
+  CHORD(AG_8,    /* <- */ CMS_8),
+  CHORD(AG_9,    /* <- */ CMS_9),
+  CHORD(AG_0,    /* <- */ CMS_0),
+
+  // Left english upper row
+  CHORD(EN_Q,    /* <- */ CMS_EN_Q),
+  CHORD(EN_W,    /* <- */ CMS_EN_W),
+  CHORD(EN_E,    /* <- */ CMS_EN_E),
+  CHORD(EN_R,    /* <- */ CMS_EN_R),
+  CHORD(EN_T,    /* <- */ CMS_EN_T),
+
+  // Left english upper row with shift
+  CHORD(EN_S_Q,    /* <- */ CMS_S_EN_Q),
+  CHORD(EN_S_W,    /* <- */ CMS_S_EN_W),
+  CHORD(EN_S_E,    /* <- */ CMS_S_EN_E),
+  CHORD(EN_S_R,    /* <- */ CMS_S_EN_R),
+  CHORD(EN_S_T,    /* <- */ CMS_S_EN_T),
+
+  // Right english upper row
+  CHORD(EN_Y,    /* <- */ CMS_EN_Y),
+  CHORD(EN_U,    /* <- */ CMS_EN_U),
+  CHORD(EN_I,    /* <- */ CMS_EN_I),
+  CHORD(EN_O,    /* <- */ CMS_EN_O),
+  CHORD(EN_P,    /* <- */ CMS_EN_P),
+
+  // Right english upper row with shift
+  CHORD(EN_S_Y,    /* <- */ CMS_S_EN_Y),
+  CHORD(EN_S_U,    /* <- */ CMS_S_EN_U),
+  CHORD(EN_S_I,    /* <- */ CMS_S_EN_I),
+  CHORD(EN_S_O,    /* <- */ CMS_S_EN_O),
+  CHORD(EN_S_P,    /* <- */ CMS_S_EN_P),
+
+  // Left russian upper row
+  CHORD(RU_J,    /* <- */ CMS_RU_J),
+  CHORD(RU_TS,    /* <- */ CMS_RU_TS),
+  CHORD(RU_U,    /* <- */ CMS_RU_U),
+  CHORD(RU_K,    /* <- */ CMS_RU_K),
+  CHORD(RU_JE,    /* <- */ CMS_RU_JE),
+
+  // Left russian upper row with shift
+  CHORD(RU_S_J,    /* <- */ CMS_S_RU_J),
+  CHORD(RU_S_TS,    /* <- */ CMS_S_RU_TS),
+  CHORD(RU_S_U,    /* <- */ CMS_S_RU_U),
+  CHORD(RU_S_K,    /* <- */ CMS_S_RU_K),
+  CHORD(RU_S_JE,    /* <- */ CMS_S_RU_JE),
+
+  // Right russian upper row
+  CHORD(RU_N,    /* <- */ CMS_RU_N),
+  CHORD(RU_G,    /* <- */ CMS_RU_G),
+  CHORD(RU_SH,    /* <- */ CMS_RU_SH),
+  CHORD(RU_SC,    /* <- */ CMS_RU_SC),
+  CHORD(RU_Z,    /* <- */ CMS_RU_Z),
+
+  // Right russian upper row with shift
+  CHORD(RU_S_N,    /* <- */ CMS_S_RU_N),
+  CHORD(RU_S_G,    /* <- */ CMS_S_RU_G),
+  CHORD(RU_S_SH,    /* <- */ CMS_S_RU_SH),
+  CHORD(RU_S_SC,    /* <- */ CMS_S_RU_SC),
+  CHORD(RU_S_Z,    /* <- */ CMS_S_RU_Z),
+
+  // Combos for upper punctuation signs for English layer
+  CHORD(AG_EXCL, /* <- */ CMS_1, CMS_EN_Q),
+  CHORD(EN_AT, /* <- */ CMS_2, CMS_EN_W),
+  CHORD(EN_HASH, /* <- */ CMS_3, CMS_EN_E),
+  CHORD(EN_DLR, /* <- */ CMS_4, CMS_EN_R),
+  CHORD(AG_PERC, /* <- */ CMS_5, CMS_EN_T),
+
+  CHORD(EN_CIRC, /* <- */ CMS_6, CMS_EN_Y),
+  CHORD(EN_AMPR, /* <- */ CMS_7, CMS_EN_U),
+  CHORD(EN_ASTR, /* <- */ CMS_8, CMS_EN_I),
+  CHORD(AG_EQL, /* <- */ CMS_9, CMS_EN_O),
+  CHORD(AG_PLUS, /* <- */ CMS_0, CMS_EN_P),
+
+  // Combos for upper punctuation signs for English layer with Shift
+  CHORD(AG_EXCL, /* <- */ CMS_1, CMS_S_EN_Q),
+  CHORD(EN_AT, /* <- */ CMS_2, CMS_S_EN_W),
+  CHORD(EN_HASH, /* <- */ CMS_3, CMS_S_EN_E),
+  CHORD(EN_DLR, /* <- */ CMS_4, CMS_S_EN_R),
+  CHORD(AG_PERC, /* <- */ CMS_5, CMS_S_EN_T),
+
+  CHORD(EN_CIRC, /* <- */ CMS_6, CMS_S_EN_Y),
+  CHORD(EN_AMPR, /* <- */ CMS_7, CMS_S_EN_U),
+  CHORD(EN_ASTR, /* <- */ CMS_8, CMS_S_EN_I),
+  CHORD(AG_EQL, /* <- */ CMS_9, CMS_S_EN_O),
+  CHORD(AG_PLUS, /* <- */ CMS_0, CMS_S_EN_P),
+
+  // Combos for upper punctuation signs for Russian layer
+  CHORD(AG_EXCL, /* <- */ CMS_1, CMS_RU_J),
+  CHORD(EN_AT, /* <- */ CMS_2, CMS_RU_TS),
+  CHORD(EN_HASH, /* <- */ CMS_3, CMS_RU_U),
+  CHORD(EN_DLR, /* <- */ CMS_4, CMS_RU_K),
+  CHORD(AG_PERC, /* <- */ CMS_5, CMS_RU_JE),
+
+  CHORD(EN_CIRC, /* <- */ CMS_6, CMS_RU_N),
+  CHORD(EN_AMPR, /* <- */ CMS_7, CMS_RU_G),
+  CHORD(EN_ASTR, /* <- */ CMS_8, CMS_RU_SH),
+  CHORD(AG_EQL, /* <- */ CMS_9, CMS_RU_SC),
+  CHORD(AG_PLUS, /* <- */ CMS_0, CMS_RU_Z),
+
+  // Combos for upper punctuation signs for Russian layer with Shift
+  CHORD(AG_EXCL, /* <- */ CMS_1, CMS_S_RU_J),
+  CHORD(EN_AT, /* <- */ CMS_2, CMS_S_RU_TS),
+  CHORD(EN_HASH, /* <- */ CMS_3, CMS_S_RU_U),
+  CHORD(EN_DLR, /* <- */ CMS_4, CMS_S_RU_K),
+  CHORD(AG_PERC, /* <- */ CMS_5, CMS_S_RU_JE),
+
+  CHORD(EN_CIRC, /* <- */ CMS_6, CMS_S_RU_N),
+  CHORD(EN_AMPR, /* <- */ CMS_7, CMS_S_RU_G),
+  CHORD(EN_ASTR, /* <- */ CMS_8, CMS_S_RU_SH),
+  CHORD(AG_EQL, /* <- */ CMS_9, CMS_S_RU_SC),
+  CHORD(AG_PLUS, /* <- */ CMS_0, CMS_S_RU_Z),
 
   // Left hand
   CHORD(AG_PLUS, /* <- */ CMB_PLS),
@@ -674,7 +847,7 @@ const ComboWithKeycode combos[] PROGMEM = {
 const uint8_t combos_size = sizeof(combos)/sizeof(ComboWithKeycode);
 
 const uint16_t tt_keys[][3] = {
-  { TT_CTJ, CT_J,  CT_BSLS }, // Program killing, if pressed 3 times then throws Ctrl+\, and it kills the program immediately
+  { TT_CTJ,  CT_J,    CT_BSLS }, // Program killing, if pressed 3 times then throws Ctrl+\, and it kills the program immediately
   { TT_RED,  MO_RED,  TG_RED },
   { TT_GREN, MO_GREN, TG_GREN },
   { TT_VIOL, MO_VIOL, TG_VIOL },
