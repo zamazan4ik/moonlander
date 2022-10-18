@@ -452,10 +452,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // RIGHT HALF
     _______, _______, _______, _______, _______, _______, RESET,
-    _______, _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
-    _______, _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,
-             _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,  _______,
-                      _______, _______, _______, _______, _______,
+    _______, _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  LA_CAPS,
+    _______, _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   LA_ALSH,
+             _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   LA_CTSH,
+                      _______, _______, _______, _______, LA_WISP,
                       _______, // RIGHT RED THUMB KEY
                       _______, _______, _______ // RIGHT THUMB KEYS
   ),
@@ -1072,6 +1072,8 @@ void repeated_key_error(void) {
   PLAY_SONG(error_song2); 
   dprintf("REPEATED KEY ERROR\n");
 }
+
+bool temporarily_disable_server = false;
 
 void language_server_timer(void)
 {
