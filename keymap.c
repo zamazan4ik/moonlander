@@ -245,6 +245,12 @@ LAYOUT_moonlander( \
 #define CMS_S_RU_SC CMB_105
 #define CMS_S_RU_Z CMB_106
 
+#define CMS_ESC CMB_107
+#define CMS_UNDS CMB_108
+#define CMS_LFT_ADD CMB_109
+#define CMS_RGT_ADD CMB_110
+#define CMS_CT_Z CMB_111
+
 #define TT_CTJ TT_000
 
 // Add custom keycode processing
@@ -326,8 +332,8 @@ enum Layers {
   /*-------------------------------------------------------------------------*/ \
   [L_DEFAULT] = MY_layout( \
     /* LEFT HALF */ \
-    KC_ESC,  CMS_1,   CMS_2,   CMS_3,   CMS_4,   CMS_5, EN_GRV, \
-    AG_UNDS, LU1,     LU2,     LU3,     LU4,     LU5,     CMB_CTC, \
+    CMS_ESC, CMS_1,   CMS_2,   CMS_3,   CMS_4,   CMS_5,   CMS_LFT_ADD, \
+    CMS_UNDS,LU1,     LU2,     LU3,     LU4,     LU5,     CMB_CTC, \
     AG_DQUO, LH1,     LH2,     LH3,     LH4,     LH5,     CMB_CTV, \
     EN_QUOT, LD1,     LD2,     LD3,     LD4,     LD5, \
     EN_PIPE, XXXXXXX, XXXXXXX, CMB_LYG, CMB_LYV, \
@@ -335,7 +341,7 @@ enum Layers {
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ \
     \
     /* RIGHT HALF */ \
-    AC_TILD,    CMS_6,   CMS_7,   CMS_8,   CMS_9,   CMS_0,   CT_Z, \
+    CMS_RGT_ADD,CMS_6,   CMS_7,   CMS_8,   CMS_9,   CMS_0,   CMS_CT_Z, \
     CMB_CTS,    RU1,     RU2,     RU3,     RU4,     RU5,     CMS_MINS, \
     CMB_CMSP,   RH1,     RH2,     RH3,     RH4,     RH5,     AG_SCLN, \
                 RD1,     RD2,     RD3,     RD4,     CMB_QUE, CMB_CLN, \
@@ -791,11 +797,15 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(AG_PLUS, /* <- */ CMS_0, CMS_S_RU_Z),
 
   // Left hand
+  CHORD(EN_GRV, /* <- */ CMS_LFT_ADD),
+  CHORD(KC_ESC, /* <- */ CMS_ESC),
+  CHORD(AG_UNDS, /* <- */ CMS_UNDS),
   CHORD(AG_PLUS, /* <- */ CMB_PLS),
   CHORD(AG_SCLN, /* <- */ CMB_SCL),
   CHORD(EN_GRV,  /* <- */ CMB_GRV),
   CHORD(AG_EXCL, /* <- */ CMB_EXL),
   CHORD(AG_ASTR, /* <- */ CMB_ASR),
+  CHORD(EN_GRV, /* <- */ CMS_ESC, CMS_UNDS),
   CHORD(EN_TILD, /* <- */ CMB_PLS, CMB_EXL),
   CHORD(RU_NUME, /* <- */ CMB_PLS, CMB_ASR),
   CHORD(EN_QUOT, /* <- */ CMB_GRV, CMB_EXL),
@@ -805,6 +815,8 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(AG2DQUO, /* <- */ CMB_SCL, CMB_GRV, CMB_EXL),
 
   // Right hand
+  CHORD(CT_Z, /* <- */ CMS_CT_Z),
+  CHORD(AC_TILD, /* <- */ CMS_RGT_ADD),
   CHORD(AG_SLSH, /* <- */ CMB_SLS),
   CHORD(AG_QUES, /* <- */ CMB_QUE),
   CHORD(AG_CMSP, /* <- */ CMB_CMM),
@@ -817,6 +829,22 @@ const ComboWithKeycode combos[] PROGMEM = {
   CHORD(AG_BSLS, /* <- */ CMB_QUE, CMB_CLN),
   CHORD(EN2PIPE, /* <- */ CMB_QUE, CMB_EQL),
   CHORD(EN2AMPR, /* <- */ CMB_QUE, CMB_CMM, CMB_CLN),
+
+  // -------------------------------------------------------------------------
+  // F1-F12 combos on the main layer
+  CHORD(KC_F1, /* <- */ CMS_ESC, CMS_1),
+  CHORD(KC_F2, /* <- */ CMS_1, CMS_2),
+  CHORD(KC_F3, /* <- */ CMS_2, CMS_3),
+  CHORD(KC_F4, /* <- */ CMS_3, CMS_4),
+  CHORD(KC_F5, /* <- */ CMS_4, CMS_5),
+  CHORD(KC_F6, /* <- */ CMS_5, CMS_LFT_ADD),
+
+  CHORD(KC_F7, /* <- */ CMS_RGT_ADD, CMS_6),
+  CHORD(KC_F8, /* <- */ CMS_6, CMS_7),
+  CHORD(KC_F9, /* <- */ CMS_7, CMS_8),
+  CHORD(KC_F10, /* <- */ CMS_8, CMS_9),
+  CHORD(KC_F11, /* <- */ CMS_9, CMS_0),
+  CHORD(KC_F12, /* <- */ CMS_0, CMS_CT_Z),
 
   // -------------------------------------------------------------------------
   // Brackets on red layer
