@@ -18,6 +18,8 @@ enum custom_hotkeys_keycodes {
   CT_Y,
   CT_Z,
   AR_L5,
+  CT_SFT_C,
+  CT_SFT_V,
 
   CUSTOM_HOTKEYS_NEW_SAFE_RANGE,
   #undef CUSTOM_SAFE_RANGE
@@ -164,6 +166,26 @@ bool process_my_hotkeys(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_LEFT);
         register_code(KC_LEFT);
         unregister_code(KC_LEFT);
+      }
+      return false;
+    case CT_SFT_C:
+      if (record->event.pressed) {
+        register_code(KC_LCTRL);
+        register_code(KC_LSHIFT);
+        register_code(KC_C);
+        unregister_code(KC_C);
+        unregister_code(KC_LSHIFT);
+        unregister_code(KC_LCTRL);
+      }
+      return false;
+    case CT_SFT_V:
+      if (record->event.pressed) {
+        register_code(KC_LCTRL);
+        register_code(KC_LSHIFT);
+        register_code(KC_V);
+        unregister_code(KC_V);
+        unregister_code(KC_LSHIFT);
+        unregister_code(KC_LCTRL);
       }
       return false;
   }

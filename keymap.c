@@ -428,8 +428,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_RED] = MY_layout(
     // LEFT HALF
     TG_RED,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
-    CT_G,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  CT_J,    _______,
-    CS_M,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, CS_K,    _______,
+    CT_G,    KC_HOME, KC_PGDN, KC_PGUP, KC_END,  CT_J,    CT_SFT_C,
+    CS_M,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, CS_K,    CT_SFT_V,
     _______, CT_LEFT, CT_DOWN, CT_UP,   CT_RGHT, CT_F,
     _______, _______, _______, _______, TT_CYAN,
     _______, // LEFT RED THUMB KEY
