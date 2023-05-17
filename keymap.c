@@ -336,7 +336,7 @@ enum Layers {
     CMS_UNDS,LU1,     LU2,     LU3,     LU4,     LU5,     CMB_CTC, \
     AG_DQUO, LH1,     LH2,     LH3,     LH4,     LH5,     CMB_CTV, \
     EN_QUOT, LD1,     LD2,     LD3,     LD4,     LD5, \
-    EN_PIPE, XXXXXXX, XXXXXXX, CMB_LYG, CMB_LYV, \
+    EN_PIPE, XXXXXXX, CMB_LYV, CMB_LYG, TT_RED, \
     CMB_CTL, /* LEFT RED THUMB KEY */ \
     CMB_SFT, CMB_BSP, CMB_ENT, /* LEFT THUMB KEYS */ \
     \
